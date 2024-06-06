@@ -1,45 +1,77 @@
-<p align="center" width="100%">
-  <img src="images/fastapi.svg" alt="fastapi-logo" width="100">
-</p>
+# FastAPI Project Structure
 
-# FastAPI Starter Kit
+## Root Directory
 
-**FastAPI Starter Kit** is a modular and flexible starting point for building web applications with FastAPI. This repository provides a robust base structure with various extensions and configurations to help you get started quickly and efficiently.
-
-## Features
-
-- **Base Structure**: A well-organized and scalable FastAPI project structure to kickstart your development.
-- **Multiple Variations**: Branches with different features and integrations, such as:
-  - **Cron Jobs**: Set up and manage scheduled tasks with ease.
-  - **Prisma ORM**: Integrate Prisma for efficient and type-safe database interactions.
-  - **SQLAlchemy**: Use SQLAlchemy for powerful database management and ORM capabilities.
-  - **YOLO Models**: Implement YOLO (You Only Look Once) models for object detection and computer vision applications.
-- **Extensible**: Easily add and customize features as per your project requirements.
-- **Best Practices**: Follow industry best practices for code organization, security, and performance.
-
-## Getting Started
-
-To get started with FastAPI Starter Kit, clone the repository using the following command:
-
-Example:
-```bash
-git clone -b <BRANCH_NAME> https://github.com/yourusername/fastapi-starter-kit.git
+```
+📦FastAPI
+ ┣ 📂app
+ ┃ ┣ 📂api
+ ┃ ┣ 📂db
+ ┃ ┃ ┗ 📜prisma_client.py
+ ┃ ┣ 📂job
+ ┃ ┃ ┗ 📜cron_job.py
+ ┃ ┣ 📂models
+ ┃ ┃ ┗ 📜model.pt
+ ┃ ┣ 📂response
+ ┃ ┣ 📂schema
+ ┃ ┣ 📂service
+ ┃ ┣ 📂utils
+ ┃ ┗ 📜server.py
+ ┣ 📂docs
+ ┣ 📂prisma
+ ┃ ┣ 📜partial_types.py
+ ┃ ┗ 📜schema.prisma
+ ┣ 📂tests
+ ┣ 📜.env
+ ┣ 📜.env.example
+ ┣ 📜.gitattributes
+ ┣ 📜.gitignore
+ ┣ 📜config.py
+ ┣ 📜main.py
+ ┣ 📜poetry.lock
+ ┣ 📜pyproject.toml
+ ┗ 📜README.md
 ```
 
-```bash
-git clone -b base https://github.com/yourusername/fastapi-starter-kit.git
-```
+## Explanation
 
-## Branches
+- **Root Directory**: Contains project-wide configuration files and entry points.
 
-| Branch Name                                                                         | Description                                                     |
-|-------------------------------------------------------------------------------------|-----------------------------------------------------------------|
-| [base](https://github.com/yourusername/fastapi-starter-kit/tree/base)               | The base branch with the simplest base FastAPI structure.       |
-| [cron-jobs](https://github.com/yourusername/fastapi-starter-kit/tree/cron-jobs)     | Includes configurations and examples for setting up cron jobs.  |
-| [prisma](https://github.com/yourusername/fastapi-starter-kit/tree/prisma)           | Integration with Prisma ORM for database management.            |
-| [sqlalchemy](https://github.com/yourusername/fastapi-starter-kit/tree/sqlalchemy)   | Set up SQLAlchemy for advanced ORM features.                    |
-| [yolo-models](https://github.com/yourusername/fastapi-starter-kit/tree/yolo-models) | Example implementations of YOLO models for object detection.    |
+  - **app**: Main application directory containing various modules and services.
 
-#### Contact
+    - **api**: Contains route handlers.
+      - Defines API endpoints and their functions.
+    
+    - **db**: Database-related files.
+      - `prisma_client.py`: Setup for Prisma client to interact with the database.
+    
+    - **job**: Scheduled jobs and background tasks.
+      - Includes jobs like cron jobs or S3 bucket tasks.
+    
+    - **models**: Machine Learning models.
+    
+    - **response**: Custom response handlers and structures.
+    
+    - **schema**: Pydantic schemas for data validation and serialization.
+    
+    - **service**: Business logic and service functions.
+      - Contains complex functions used in API calls.
+    
+    - **utils**: Utility functions and helper modules.
+    
+    - `server.py`: Initializes and configures the FastAPI server.
 
-For any questions or feedback, please reach out to [your email] or open an issue on GitHub.
+  - **docs**: Project documentation files.
+
+  - **prisma**: Prisma ORM related files.
+    - `partial_types.py`, `schema.prisma`: Prisma schema and type definitions.
+
+  - **tests**: Unit and integration test files.
+
+  - `.env`: Environment configuration file.
+  - `.env.example`: Example environment configuration file that is not ignored by Git.
+  - `.gitattributes`, `.gitignore`: Git configuration files to manage attributes and ignored files.
+  - `config.py`: General project configurations, such as loading environment keys.
+  - `main.py`: Entry point for the application.
+  - `poetry.lock`, `pyproject.toml`: Dependency management files used by Poetry.
+  - `README.md`: Documentation providing an overview and instructions for the project.

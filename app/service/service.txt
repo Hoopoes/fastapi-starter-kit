@@ -1,0 +1,1 @@
+Any complex and large function needed in API routes should be placed in the service folder, with the same name followed by `_service`.
