@@ -18,6 +18,7 @@
  ┃ ┣ 📂utils
  ┃ ┗ 📜server.py
  ┣ 📂docs
+ ┣ 📂logs
  ┣ 📂prisma
  ┃ ┣ 📜partial_types.py
  ┃ ┗ 📜schema.prisma
@@ -62,6 +63,8 @@
     - `server.py`: Initializes and configures the FastAPI server.
 
   - **docs**: Project documentation files.
+
+  - **logs**: Daily logs files.
 
   - **prisma**: Prisma ORM related files.
     - `partial_types.py`, `schema.prisma`: Prisma schema and type definitions.

@@ -1,6 +1,9 @@
 # Python cache
 __pycache__/
 
+# log files
+logs/*.log
+
 # Temporary files
 **temp**
 
