@@ -5,9 +5,8 @@ from datetime import datetime
 from logging.config import dictConfig
 
 # Ensure logs directory exists
-log_dir = "logs"
-if not os.path.exists(log_dir):
-    os.makedirs(log_dir)
+LOG_DIRECTORY = "logs"
+os.makedirs(LOG_DIRECTORY, exist_ok=True)
 
 # Get the current date
 current_date = datetime.now().strftime("%Y-%m-%d")
@@ -22,6 +21,10 @@ log_config = {
             "fmt": "%(levelprefix)s | %(asctime)s | %(message)s",
             "datefmt": "%Y-%m-%d %H:%M:%S",
         },
+        "file_formatter": {
+            "format": "%(levelname)s | %(asctime)s | %(message)s",
+            "datefmt": "%Y-%m-%d %H:%M:%S",
+        },
     },
     "handlers": {
         "default": {
@@ -30,9 +33,9 @@ log_config = {
             "stream": "ext://sys.stderr",
         },
         "file": {
-            "formatter": "default",
+            "formatter": "file_formatter",
             "class": "logging.handlers.TimedRotatingFileHandler",
-            "filename": os.path.join(log_dir, f"{current_date}.log"),
+            "filename": os.path.join(LOG_DIRECTORY, f"{current_date}.log"),
             "when": "midnight",
             "backupCount": 7,
             "encoding": "utf-8",

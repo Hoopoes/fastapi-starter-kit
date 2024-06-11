@@ -6,18 +6,22 @@ authors = ["Muhammad Umar Anzar <63141196+umar-anzar@users.noreply.github.com>"]
 readme = "README.md"
 package-mode = false
 
+[[tool.poetry.source]]
+name = "PyPI"
+priority = "primary"
+
 [tool.poetry.dependencies]
 python = ">=3.11,<3.12"
 uvicorn = {extras = ["standard"], version = "^0.29.0"}
 fastapi = "^0.111.0"
-fastapi-utilities = "^0.2.0"
+
+
+[tool.poetry.group.db.dependencies]
 prisma = "^0.13.1"
 
 
-
-[[tool.poetry.source]]
-name = "PyPI"
-priority = "primary"
+[tool.poetry.group.cronJob.dependencies]
+fastapi-utilities = "^0.2.0"
 
 [build-system]
 requires = ["poetry-core"]
