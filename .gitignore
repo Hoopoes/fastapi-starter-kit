@@ -1,9 +1,6 @@
 # Python cache
 __pycache__/
 
-# Poetry lock
-poetry.lock
-
 # log files
 logs/*.log
 
